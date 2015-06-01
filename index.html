@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="voodooMobile">
+<head>
+    <title>Voodoo</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="js/controllers.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 center">
+                <img src="images/voodoo-logo-text.png" alt="" class="top20" />
+            </div>
+        </div>
+    </div>
+
+    <div class="modal staticmodal top10" ng-controller="loginController" ng-show="showLogin">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" ng-model="email"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Enter your password" ng-model="password"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="login(email, password)">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="navcontainer" ng-controller="navController" ng-show="showNav">
+        <div class="navrow">
+            Test
+        </div>
+    </div>
+</body>
+</html>
