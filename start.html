@@ -1,0 +1,33 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-xs-12 center">
+            <img src="images/voodoo-logo-text.png" alt="" class="top20" />
+        </div>
+    </div>
+</div>
+
+<div class="modal staticmodal" ng-show="showLogin" id="loginModal" style="{{loginOffset}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group {{emailInvalid ? 'has-error' : ''}}">
+                        <input type="email" class="form-control" placeholder="Enter your email" ng-model="inputEmail" id="inputEmail" />
+                    </div>
+                    <div class="form-group bottom0 {{passwordInvalid ? 'has-error' : ''}}">
+                        <input type="password" class="form-control" placeholder="Enter your password" ng-model="inputPassword" id="inputPassword" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span class="pull-left top5">
+                    <a href="https://voodoo.community/en/register" target="_blank">Create an account</a>
+                </span>
+                <button type="button" class="btn btn-primary" ng-click="login()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
