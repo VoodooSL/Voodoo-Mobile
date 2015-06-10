@@ -3,7 +3,13 @@
     $scope.showNav = false;
 }])
 .controller('socialController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    $scope.token = $rootScope.token;
 
+    function init() {
+
+    };
+
+    init();
 }])
 .controller('loginController', ['$scope', '$rootScope', 'memberResource', function ($scope, $rootScope, memberResource) {
     $scope.showLogin = false;
@@ -46,10 +52,12 @@
             $scope.isLoggingIn = true;
             memberResource.login($scope.inputEmail, $scope.inputPassword).then(function (d) {
                 $scope.loginResponse = d.data.result;
-                if ($scope.loginResponse == 'ok')
+                if ($scope.loginResponse == 'ok') {
+                    $rootScope.token = d.data.token;
                     window.location = '#/social';
-
-                $scope.isLoggingIn = false;
+                }
+                else
+                    $scope.isLoggingIn = false;
             });
         }
     };
