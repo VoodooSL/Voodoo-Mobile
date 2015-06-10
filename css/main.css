@@ -48,8 +48,6 @@ body {
     background:#101010;
     color:white;
     height:50px;
-    overflow-y:scroll;
-    overflow-x:hidden;
 }
 
 .navrow {
