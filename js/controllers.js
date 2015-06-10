@@ -1,12 +1,20 @@
-﻿angular.module('voodooMobileControllers', ['voodooMobileResources'])
+﻿angular.module('voodooMobileControllers', ['voodooMobileResources', 'voodooMobileDirectives'])
 .controller('navController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.showNav = false;
+    $scope.$on('showNav', function (event, data) {
+        if (typeof (data) == 'undefined')
+            return;
+        console.log(data);
+        $scope.showNav = data;
+    });
 }])
 .controller('socialController', ['$scope', '$rootScope', 'socialResource', function ($scope, $rootScope, socialResource) {
     $scope.token = $rootScope.token;
     $scope.all = {};
 
     function init() {
+        $rootScope.$broadcast('showNav', true);
+
         socialResource.loadAll($rootScope.token, 0, 'en').then(function (d) {
             $scope.all = d.data;
         });
