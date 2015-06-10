@@ -21,12 +21,19 @@
                         <input type="password" class="form-control" placeholder="Enter your password" ng-model="inputPassword" id="inputPassword" />
                     </div>
                 </form>
+                <div class="alert alert-danger top20 bottom0" role="alert" ng-show="loginResponse == 'error'">
+                    There was an error logging in. Try again.
+                </div>
+                <div class="alert alert-danger top20 bottom0" role="alert" ng-show="loginResponse == 'not-authenticated'">
+                    The email or password was incorrect.
+                </div>
             </div>
             <div class="modal-footer">
                 <span class="pull-left top5">
                     <a href="https://voodoo.community/en/register" target="_blank">Create an account</a>
                 </span>
-                <button type="button" class="btn btn-primary" ng-click="login()">Login</button>
+                <button type="button" class="btn btn-primary" ng-click="login()" ng-hide="isLoggingIn">Login</button>
+                <img src="/images/loader.gif" alt="" class="pull-right" style="margin-top:8px;margin-right:10px;" ng-show="isLoggingIn" />
             </div>
         </div>
     </div>

@@ -1,17 +1,19 @@
-﻿angular.module('voodooMobileControllers', [])
+﻿angular.module('voodooMobileControllers', ['voodooMobileResources'])
 .controller('navController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.showNav = false;
 }])
 .controller('socialController', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
 }])
-.controller('loginController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+.controller('loginController', ['$scope', '$rootScope', 'memberResource', function ($scope, $rootScope, memberResource) {
     $scope.showLogin = false;
     $scope.inputEmail = '';
     $scope.inputPassword = '';
     $scope.loginOffset = 0;
     $scope.emailInvalid = false;
     $scope.passwordInvalid = false;
+    $scope.loginResponse = ''
+    $scope.isLoggingIn = false;
 
     function init() {
         if (!localStorage.loginDetails) {
@@ -39,6 +41,17 @@
         else
             $scope.emailInvalid = false;
 
+        if(isOk)
+        {
+            $scope.isLoggingIn = true;
+            memberResource.login($scope.inputEmail, $scope.inputPassword).then(function (d) {
+                $scope.loginResponse = d.data.result;
+                if ($scope.loginResponse == 'ok')
+                    window.location = '/#/social';
+
+                $scope.isLoggingIn = false;
+            });
+        }
     };
 
     init();
