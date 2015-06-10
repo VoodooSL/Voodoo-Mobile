@@ -7,3 +7,12 @@
         }
     };
 }])
+.factory("socialResource", ['$http', function ($http) {
+    return {
+        loadAll: function (t, listType, culture) {
+            return $http.get('http://debug.voodoo-sl.com:666/delirious/api/SocialApi/LoadAll?t=' + t +
+                                                                                         '&listType=' + listType +
+                                                                                         '&culture=' + culture);
+        }
+    };
+}])

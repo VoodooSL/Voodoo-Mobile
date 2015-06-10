@@ -2,11 +2,14 @@
 .controller('navController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.showNav = false;
 }])
-.controller('socialController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+.controller('socialController', ['$scope', '$rootScope', 'socialResource', function ($scope, $rootScope, socialResource) {
     $scope.token = $rootScope.token;
+    $scope.all = {};
 
     function init() {
-
+        socialResource.loadAll($rootScope.token, 0, 'en').then(function (d) {
+            $scope.all = d.data;
+        });
     };
 
     init();

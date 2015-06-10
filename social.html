@@ -1,3 +1,14 @@
-﻿<div style="color:white;">
-    {{token}}
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default" ng-repeat="p in all.Posts">
+            <div class="panel-heading">
+                <span>
+                    {{p.FromAvName}}
+                </span>
+            </div>
+            <div class="panel-body">
+                {{p.Message}}
+            </div>
+        </div>
+    </div>
 </div>
