@@ -11,6 +11,7 @@
 .controller('socialController', ['$scope', '$rootScope', 'socialResource', function ($scope, $rootScope, socialResource) {
     $scope.token = $rootScope.token;
     $scope.all = {};
+    $scope.windowHeight = window.innerHeight;
 
     function init() {
         $rootScope.$broadcast('showNav', true);
