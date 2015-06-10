@@ -47,7 +47,7 @@
             memberResource.login($scope.inputEmail, $scope.inputPassword).then(function (d) {
                 $scope.loginResponse = d.data.result;
                 if ($scope.loginResponse == 'ok')
-                    window.location = '/#/social';
+                    window.location = '#/social';
 
                 $scope.isLoggingIn = false;
             });
